@@ -159,6 +159,16 @@ public class Biblioteca {
         this.itens.add(itemNovo);
     }
 
+    public void addEmpretimo(int idUsuario, int idItem, String dataEmprestimo){
+        if(getUsuarioPorId(idUsuario))
+        try {
+            Emprestimo novEmprestimo = new Emprestimo(idUsuario, idItem, dataEmprestimo);
+            this.emprestimos.add(novEmprestimo);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     //relatorio
 

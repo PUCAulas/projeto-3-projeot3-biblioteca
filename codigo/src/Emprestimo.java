@@ -12,7 +12,7 @@ public class Emprestimo {
     private int limiteDeEmprestimo = 3;
     private boolean emprestado = true;
 
-    public Emprestimo(int idUsuario, String dataEmprestimo, int idItem) throws ParseException {
+    public Emprestimo(int idUsuario, int idItem, String dataEmprestimo) throws ParseException {
         this.idUsuario = idUsuario;
         this.dataEmprestimo = dataEmprestimo;
         this.idItem = idItem;

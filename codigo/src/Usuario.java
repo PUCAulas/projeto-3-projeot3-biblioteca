@@ -1,11 +1,10 @@
 import java.util.ArrayList;
+import java.util.Calendar;
 public class Usuario {
 
     private int idUsuario;
     private static int proximoId = 1;
     private String nome;
-    private ArrayList<ItemBibli> itensEmprestados;
-    private ArrayList<ItemBibli> itensAtrasados;
     private ArrayList<Emprestimo> emprestimos;
 
 
@@ -13,8 +12,6 @@ public class Usuario {
         this.idUsuario = proximoId;
         proximoId++;
         this.nome = nome;
-        this.itensEmprestados = new ArrayList<ItemBibli>();
-        this.itensAtrasados = new ArrayList<ItemBibli>();
         this.emprestimos = new ArrayList<Emprestimo>();
     }
 
@@ -34,14 +31,18 @@ public class Usuario {
     public void setNome(String nome){
         this.nome = nome;
     }
-
-    public ArrayList<ItemBibli> getItensEmprestados() {
-        return itensEmprestados;
+    public boolean temEmprestimoAtrasado(){
+        Calendar calendario = Calendar.getInstance();
+        for(Emprestimo emprestimo : this.emprestimos){
+            String dataMaxima = emprestimo.getDataDevolucao();
+            
+            if()
+        }
     }
 
     //public void imprimirItensEmprestados()
     public boolean podeEmprestar(){
-        if(this.itensEmprestados.size() == 3 || !this.itensAtrasados.isEmpty()){
+        if(this.emprestimos.size() == 3 || !this.itensAtrasados.isEmpty()){
             return false;
         }
         return true;
@@ -55,11 +56,5 @@ public class Usuario {
         }
     }
 
-    public ArrayList<ItemBibli> getItensAtrasados() {
-        return itensAtrasados;
-    }
-    public void setItensAtrasados(ItemBibli itemAtrasado) {
-        this.itensAtrasados.add(itemAtrasado);
-    }
     
 }

@@ -1,6 +1,6 @@
 public interface ItemEmprestavel {
-    boolean emprestar();
+    void emprestar() throws Exception;
 
-    boolean devolver();
+    void devolver();
 
 }

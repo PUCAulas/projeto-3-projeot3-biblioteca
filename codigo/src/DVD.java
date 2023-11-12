@@ -1,18 +1,29 @@
 public class DVD extends ItemBibli implements ItemEmprestavel{
+    private int exemplaresDisponiveis;
     // Construtor que chama o construtor da classe mãe
     public DVD(String autor, String titulo, int ano, int exemplares) {
         super(autor, titulo, ano, exemplares);
+        this.exemplaresDisponiveis = exemplares;
     }
     @Override
-    public boolean emprestar() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'emprestar'");
+    public void emprestar() throws Exception{
+        if (this.getExemplaresDisponiveis()<2) {
+            throw new Exception("Nao ha exemplares suficientes para pegar emprestado!");
+        }
+        else{
+            this.exemplaresDisponiveis--;
+        }
     }
 
     @Override
-    public boolean devolver() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'devolver'");
+    public void devolver() {
+        this.exemplaresDisponiveis++;
+    }
+    public int getExemplaresDisponiveis() {
+        return exemplaresDisponiveis;
+    }
+    public void setExemplaresDisponiveis(int exemplaresDisponiveis) {
+        this.exemplaresDisponiveis = exemplaresDisponiveis;
     }
     
 }
