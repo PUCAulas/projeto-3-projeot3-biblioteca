@@ -68,6 +68,18 @@ public class Biblioteca {
 
     //As funcoes a seguir listam todos os itens da biblioteca organizados em ordem alfanumerica para cada atributo
     //nao sei se é necessario
+    public void listarItens(){
+        for(ItemBibli item : this.itens){
+            System.out.println(item.toString());
+        }
+    }
+    public void listarEmprestaveis(){
+        for(ItemBibli item : this.itens){
+            if(item instanceof ItemEmprestavel){
+            System.out.println(item.toString());
+            }
+        }
+    }
     public void listarPorTitulo(){
         ArrayList<ItemBibli> aux;
         aux = this.getItens();
@@ -120,6 +132,21 @@ public class Biblioteca {
     }
 //////////////////////////////////////////////////////
 
+//listar emprestimos
+    public void listarEmprestimos(){
+        for(Emprestimo emprestimo : this.emprestimos){
+            System.out.println("Id Usuario do Emprestimo: "+ emprestimo.getIdUser() + "Id Item do Emprestimo: "+ emprestimo.getItemId());
+        }
+    }
+    public void listarEmprestimosUsuario(int idUsuario){
+        Usuario usuario = getUsuarioPorId(idUsuario);
+        usuario.listarEmprestimos();
+    }
+    public void listarEmprestimosUsuarioEmprestado(int idUsuario){
+        Usuario usuario = getUsuarioPorId(idUsuario);
+        usuario.listarEmprestimosEmprestados();
+    }
+/////////////////q
 //Getters e adders
     public ArrayList<Usuario> getUsuarios() {
         return usuarios;
@@ -160,15 +187,39 @@ public class Biblioteca {
     }
 
     public void addEmpretimo(int idUsuario, int idItem, String dataEmprestimo){
-        if(getUsuarioPorId(idUsuario))
         try {
+            
             Emprestimo novEmprestimo = new Emprestimo(idUsuario, idItem, dataEmprestimo);
+            getUsuarioPorId(idUsuario).addEmprestimos(novEmprestimo);
+            ItemBibli itemEmprestimo = getItemPorId(idItem);
+            if(itemEmprestimo instanceof ItemEmprestavel){
+                ((ItemEmprestavel)itemEmprestimo).emprestar();
             this.emprestimos.add(novEmprestimo);
+            System.out.println("Item emprestado com sucesso!");
+            }
+            else{
+                System.out.println("Nao foi possivel emprestar esse item!");
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+    public Emprestimo getEmprestimoPorId(int idUsuario, int idItem){
+        for(Emprestimo emprestimo : this.emprestimos){
+            if(emprestimo.getIdUser() == idUsuario && emprestimo.getItemId() == idItem){
+                return emprestimo;
+            }
+        }
+        return null;
+    }
+    //
+    public void devolverItem(int idUsuario, int idItem){
+        ItemBibli itemEmprestimo = getItemPorId(idItem);
+            if(itemEmprestimo instanceof ItemEmprestavel)
+                ((ItemEmprestavel)itemEmprestimo).devolver();
+        getEmprestimoPorId(idUsuario, idItem).devolver();
 
+    }
 
     //relatorio
 
