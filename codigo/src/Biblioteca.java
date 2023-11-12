@@ -121,9 +121,27 @@ public class Biblioteca {
     public ArrayList<Usuario> getUsuarios() {
         return usuarios;
     }
-    public void addUsuario(Usuario usuarioNovo){
-        this.usuarios.add(usuarioNovo);
+
+    public void imprimirUsuarios() {
+        for (Usuario user : usuarios) {
+            System.out.println(user.getIdUsuario() + " - " + user.getNome());
+        }
     }
+    public void addUsuario(String nome){
+        Usuario user = new Usuario(nome);
+        this.usuarios.add(user);
+    }
+
+    public Usuario getUsuarioPorId(int id) {
+        for(Usuario user : usuarios) {
+            if(user.getIdUsuario() == id) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    
 
     public ArrayList<ItemBibli> getItens() {
         return itens;
