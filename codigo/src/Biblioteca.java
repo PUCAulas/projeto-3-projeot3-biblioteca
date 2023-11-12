@@ -143,6 +143,7 @@ public class Biblioteca {
         }
         return null;
     }
+
     public ItemBibli getItemPorId(int id) {
         for(ItemBibli item : itens) {
             if(item.getID() == id) {
@@ -169,8 +170,53 @@ public class Biblioteca {
         }
     }
 
+    
+
 
     //relatorio
+    public void relatorioItensEmprestimos() {
+        ArrayList<ItemBibli> aux;
+        aux = this.getItens();
+        Collections.sort(aux, Comparator.comparing(ItemBibli::getAno));
 
-    //public void relatorio
+        for(ItemBibli item : aux) {
+            int itemId = item.getID();
+            int vezesEmprestado = vezesItemEmprestado(itemId);
+            System.out.println(item.getTitulo() + " foi emprestado" + vezesEmprestado + "vezes");
+        }
+    }
+
+    public int vezesItemEmprestado(int id) {
+        int i = 0;
+        for(Emprestimo emprestimo : emprestimos) {
+            if(emprestimo.getItemId() == id) {
+                i++;
+            }
+        }
+        return i;
+    }
+
+    public void relatorioUsuariosEmprestimos() {
+        ArrayList<Usuario> aux;
+        aux = this.getUsuarios();
+        Collections.sort(aux, Comparator.comparing(Usuario::getNome));
+
+        for(Usuario user : aux) {
+            ArrayList<Emprestimo> auxEmprestimos;
+            auxEmprestimos = user.getEmprestimos();
+            ArrayList<String> itensPorUsuario = new ArrayList<>();
+            for(Emprestimo emprestimo : auxEmprestimos) {
+                for(ItemBibli item : itens) {
+                    if (item.getID() == emprestimo.getItemId()) {
+                        itensPorUsuario.add(item.getTitulo());
+                    }
+                }
+            }
+            Collections.sort(itensPorUsuario);
+            System.out.println(user.getNome() + " - ");
+            for(String titulo : itensPorUsuario) {
+                System.out.print(titulo + ", ");
+            }
+        }
+    }
 }

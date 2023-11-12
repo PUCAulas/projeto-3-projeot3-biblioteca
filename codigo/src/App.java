@@ -7,9 +7,9 @@ public class App {
         int escolha;
         Biblioteca bib = new Biblioteca();
         // teste APAGAR DEPOIS
-        Livro l1 = new Livro("Pedro", "titulo", 2021, 4);
-        CD l2 = new CD("Alex", "titulo", 2021, 4);
-        Livro l3 = new Livro("Alex", "titulo", 2021, 4);
+        Livro l1 = new Livro("Pedro", "titulo1", 2021, 4);
+        CD l2 = new CD("Alex", "titulo2", 2021, 4);
+        Livro l3 = new Livro("Alex", "titulo3", 2021, 4);
         bib.addItem(l1);
         bib.addItem(l2);
         bib.addItem(l3);
@@ -37,11 +37,10 @@ public class App {
                     subUsuario(entrada, bib);
                     break;
                 case 2:
-
                     subItens(entrada, bib);
                     break;
                 case 3:
-                    System.out.println("Saindo do programa. Adeus!");
+                    subRelatorio(entrada, bib);
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
@@ -286,6 +285,36 @@ public class App {
                     bib.imprimirUsuarios();
                     entrada.nextLine();
                     System.out.println();
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+                    break;
+            }
+        } while (subChoice != 0);
+    }
+
+
+    public static void subRelatorio(Scanner entrada, Biblioteca bib) {
+        int subChoice;
+
+        do {
+            System.out.print("\n");
+            System.out.println("Submenu da Opção 3, Relatórios:");
+            System.out.println("1. Quantidade de vezes que itens foram emprestados, ordenado por ano de publicação");
+            System.out.println("2. Usuarios e itens que ja pegou emprestado");
+            System.out.println("0. Sair");
+
+            subChoice = entrada.nextInt();
+
+            switch (subChoice) {
+                case 0:
+                    System.out.println("Voltando para o Menu Principal!");
+                    break;
+                case 1:
+                    bib.relatorioItensEmprestimos();
+                    break;
+                case 2:
+                    bib.relatorioUsuariosEmprestimos();
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");

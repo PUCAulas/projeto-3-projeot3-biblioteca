@@ -2,90 +2,90 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ItemBibli {
-    
-// atributos
-private String autor,titulo;
-private int id,ano, exemplares;
-private static int proximoId = 1;
-private List<Emprestimo> emprestimo;
 
-// construtor
-public ItemBibli(String autor, String titulo, int ano, int exemplares){
-    this.autor = autor;
-    this.titulo = titulo;
-    this.id = proximoId;
-    proximoId++;
-    this.ano = ano;
-    this.exemplares = exemplares;
-}
-//Isso nao deveria ser papel da interface de imprestavel?
-//o item nao tem varios exemplares?
-public boolean isEmprestado() {
-    for (Emprestimo emprestimo : emprestimo) {
-        if (emprestimo.isEmprestado()) {
-            return true;
-        }
+    // atributos
+    private String autor, titulo;
+    private int id, ano, exemplares;
+    private static int proximoId = 1;
+    private List<Emprestimo> emprestimo;
+
+    // construtor
+    public ItemBibli(String autor, String titulo, int ano, int exemplares) {
+        this.autor = autor;
+        this.titulo = titulo;
+        this.id = proximoId;
+        proximoId++;
+        this.ano = ano;
+        this.exemplares = exemplares;
     }
-    return false;
-}
 
+    // Isso nao deveria ser papel da interface de imprestavel?
+    // o item nao tem varios exemplares?
+    public boolean isEmprestado() {
+        for (Emprestimo emprestimo : emprestimo) {
+            if (emprestimo.isEmprestado()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-@Override
+    @Override
     public String toString() {
         return "ID: " + id + ", titulo: " + titulo + ", autor: " + autor + ", Ano: " + ano;
     }
 
+    // métodos getters e setters
+    public String getAutor() {
+        return autor;
+    }
 
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
 
-// métodos getters e setters
-public String getAutor() {
-    return autor;
-}
+    public String getTitulo() {
+        return titulo;
+    }
 
-public void setAutor(String autor) {
-    this.autor = autor;
-}
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-public String getTitulo() {
-    return titulo;
-}
+    public int getID() {
+        return id;
+    }
 
-public void setTitulo(String titulo) {
-    this.titulo = titulo;
-}
+    public void setID(int iD) {
+        id = iD;
+    }
 
-public int getID() {
-    return id;
-}
+    public int getAno() {
+        return ano;
+    }
 
-public void setID(int iD) {
-    id = iD;
-}
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
 
-public int getAno() {
-    return ano;
-}
+    public List<Emprestimo> getlistaEmprestimos() {
+        return this.emprestimo;
+    }
 
-public void setAno(int ano) {
-    this.ano = ano;
-}
+    public int getExemplares() {
+        return this.exemplares;
+    }
 
-public List<Emprestimo> getlistaEmprestimos() {
-    return this.emprestimo;
-}
-public int getExemplares() {
-    return this.exemplares;
-}
+    public void setExemplares(int exemplares) {
+        this.exemplares = exemplares;
+    }
 
-public void setExemplares(int exemplares) {
-    this.exemplares = exemplares;
-}
+    public int getAnoPublicacao() {
+        return 0;
+    }
 
-public int getAnoPublicacao() {
-    return 0;
-}
-public void adicionaEmprestimo(Emprestimo nEmprestimo){
-    emprestimo.add(nEmprestimo);
-}
+    public void adicionaEmprestimo(Emprestimo nEmprestimo) {
+        emprestimo.add(nEmprestimo);
+    }
 
 }
