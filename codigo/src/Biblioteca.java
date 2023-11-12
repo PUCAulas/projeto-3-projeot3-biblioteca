@@ -30,7 +30,7 @@ public class Biblioteca {
         ArrayList<ItemBibli> aux = new ArrayList<>();
 
         for(ItemBibli itemComAut : this.getItens()){
-            if(itemComAut.getTitulo().equals(autorPesq))
+            if(itemComAut.getAutor().equals(autorPesq))
                 aux.add(itemComAut);
         }
         listarAlfaTitulo(aux);
@@ -79,7 +79,7 @@ public class Biblioteca {
         ArrayList<ItemBibli> aux;
         aux = this.getItens();
 
-        Collections.sort(aux, Comparator.comparing(ItemBibli::getTitulo));
+        Collections.sort(aux, Comparator.comparing(ItemBibli::getAutor));
         
         for(ItemBibli item : aux){
             System.out.println(item.toString());
@@ -89,7 +89,7 @@ public class Biblioteca {
         ArrayList<ItemBibli> aux;
         aux = this.getItens();
 
-        Collections.sort(aux, Comparator.comparing(ItemBibli::getTitulo));
+        Collections.sort(aux, Comparator.comparing(ItemBibli::getAno));
         
         for(ItemBibli item : aux){
             System.out.println(item.toString());
@@ -112,7 +112,7 @@ public class Biblioteca {
             for (ItemBibli item : entry.getValue()) {
                 System.out.println(item.toString());
             }
-            System.out.println("\n");
+            System.out.print("\n");
         }
     }
 //////////////////////////////////////////////////////
