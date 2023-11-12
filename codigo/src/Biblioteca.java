@@ -12,11 +12,13 @@ public class Biblioteca {
     public Biblioteca() {
         this.itens = new ArrayList<ItemBibli>();
         this.usuarios = new ArrayList<Usuario>();
+        this.emprestimos = new ArrayList<Emprestimo>();
     }
     //Pesquisas 
     // Eu segui o enunciado, entao vc pesquisa por um nome, titulo, autor ou tipo
     // e todos os itens encontrados com o parametro pesquisado sao listados em ordem alfabetica por titulo
     // foi isso que eu entendi no requsito C
+
     public void pesquisarPorTitulo(String tituloPesq){
         ArrayList<ItemBibli> aux = new ArrayList<>();
 
@@ -137,6 +139,14 @@ public class Biblioteca {
         for(Usuario user : usuarios) {
             if(user.getIdUsuario() == id) {
                 return user;
+            }
+        }
+        return null;
+    }
+    public ItemBibli getItemPorId(int id) {
+        for(ItemBibli item : itens) {
+            if(item.getID() == id) {
+                return item;
             }
         }
         return null;

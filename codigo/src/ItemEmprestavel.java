@@ -3,8 +3,4 @@ public interface ItemEmprestavel {
 
     boolean devolver();
 
-    int getExemplares();
-
-    void setExemplares(int exemplares);
-
 }
