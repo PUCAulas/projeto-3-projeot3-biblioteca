@@ -39,7 +39,7 @@ public class Usuario {
         return itensEmprestados;
     }
 
-    public void imprimirItensEmprestados()
+    //public void imprimirItensEmprestados()
     public boolean podeEmprestar(){
         if(this.itensEmprestados.size() == 3 || !this.itensAtrasados.isEmpty()){
             return false;
