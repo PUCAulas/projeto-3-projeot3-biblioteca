@@ -5,7 +5,7 @@ Seu grupo foi designado para desenvolver um sistema de gerenciamento de bibliote
 ## Alunos integrantes da equipe
 
 * Pedro Afonso 
-* Nome completo do aluno 2
+* Lucca Oliveira Vasconcelos de Faria
 * Nome completo do aluno 3
 * Nome completo do aluno 4
 * Nome completo do aluno 4
