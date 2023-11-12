@@ -7,6 +7,7 @@ import java.util.Map;
 public class Biblioteca {
     private ArrayList<ItemBibli> itens;
     private ArrayList<Usuario> usuarios;
+    private ArrayList<Emprestimo> emprestimos;
 
     public Biblioteca() {
         this.itens = new ArrayList<ItemBibli>();
@@ -141,12 +142,15 @@ public class Biblioteca {
         return null;
     }
 
-    
-
     public ArrayList<ItemBibli> getItens() {
         return itens;
     }
     public void addItem(ItemBibli itemNovo){
         this.itens.add(itemNovo);
     }
+
+
+    //relatorio
+
+    //public void relatorio
 }

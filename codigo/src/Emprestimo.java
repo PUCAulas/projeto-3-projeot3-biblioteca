@@ -7,18 +7,16 @@ public class Emprestimo {
     private int idUsuario;
     private String dataEmprestimo;
     private String dataDevolucao;
-    private ItemBibli item;
+    private int idItem;
     private int diasDeEmprestimo = 10;
     private int limiteDeEmprestimo = 3;
     private boolean emprestado = true;
-    private int anoPublicacao;
 
-    public Emprestimo(int idUsuario, String dataEmprestimo, ItemBibli item) throws ParseException {
+    public Emprestimo(int idUsuario, String dataEmprestimo, int idItem) throws ParseException {
         this.idUsuario = idUsuario;
         this.dataEmprestimo = dataEmprestimo;
-        this.item = item;
+        this.idItem = idItem;
         calcularDataDevolucao();
-        extrairAnoPublicacao();
     }
 
     private void calcularDataDevolucao() throws ParseException {
@@ -26,12 +24,6 @@ public class Emprestimo {
         calendario.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(dataEmprestimo));
         calendario.add(Calendar.DATE, diasDeEmprestimo);
         this.dataDevolucao = new SimpleDateFormat("dd/MM/yyyy").format(calendario.getTime());
-    }
-
-    private void extrairAnoPublicacao() {
-        if (item instanceof ItemBibli) {
-            this.anoPublicacao = ((ItemBibli) item).getAno();
-        }
     }
 
     public void devolver() {
@@ -42,7 +34,7 @@ public class Emprestimo {
         return this.emprestado;
     }
 
-    public int getId() {
+    public int getIdUser() {
         return idUsuario;
     }
 
@@ -62,8 +54,8 @@ public class Emprestimo {
         this.dataDevolucao = dataDevolucao;
     }
 
-    public ItemBibli getItem() {
-        return item;
+    public int getItemId() {
+        return idItem;
     }
 
     public int getDiasDeEmprestimo() {
@@ -72,9 +64,5 @@ public class Emprestimo {
 
     public int getLimiteDeEmprestimo() {
         return limiteDeEmprestimo;
-    }
-
-    public int getAnoPublicacao() {
-        return this.anoPublicacao;
     }
 }
