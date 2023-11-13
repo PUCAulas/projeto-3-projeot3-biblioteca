@@ -7,9 +7,7 @@ Seu grupo foi designado para desenvolver um sistema de gerenciamento de bibliote
 * Pedro Afonso 
 * Lucca Oliveira Vasconcelos de Faria
 * Lucas Hemétrio Teixeira
-* Nome completo do aluno 4
-* Nome completo do aluno 4
-* Nome completo do aluno 4
+
 
 ## Professor responsável 
 
