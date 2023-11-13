@@ -8,9 +8,9 @@ public class App {
         Biblioteca bib = new Biblioteca();
         // teste APAGAR DEPOIS
         Livro l1 = new Livro("Pedro", "Pinoquio", 2010, 4);
-        Livro l4 = new Livro("Roberto", "Ceu estrelado", 1998, 2);
         CD l2 = new CD("Alex", "Musica para Churrasco", 2023, 8);
         Livro l3 = new Livro("Fernando", "Computador no mundo", 2021, 4);
+        Livro l4 = new Livro("Roberto", "Ceu estrelado", 1998, 2);
         bib.addItem(l1);
         bib.addItem(l2);
         bib.addItem(l3);
