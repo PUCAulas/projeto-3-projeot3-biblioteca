@@ -230,7 +230,7 @@ public class Biblioteca {
         for(ItemBibli item : aux) {
             int itemId = item.getID();
             int vezesEmprestado = vezesItemEmprestado(itemId);
-            System.out.println(item.getTitulo() + " foi emprestado" + vezesEmprestado + "vezes");
+            System.out.println(item.getTitulo() + " de " + item.getAnoPublicacao() + " foi emprestado " + vezesEmprestado + " vezes");
         }
     }
 
@@ -261,7 +261,7 @@ public class Biblioteca {
                 }
             }
             Collections.sort(itensPorUsuario);
-            System.out.println(user.getNome() + " - ");
+            System.out.print(user.getNome() + " - ");
             for(String titulo : itensPorUsuario) {
                 System.out.print(titulo + ", ");
             }

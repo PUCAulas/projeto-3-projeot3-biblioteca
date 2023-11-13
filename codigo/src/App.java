@@ -7,26 +7,25 @@ public class App {
         int escolha;
         Biblioteca bib = new Biblioteca();
         // teste APAGAR DEPOIS
-        Livro l1 = new Livro("Pedro", "titulo2", 2021, 4);
-        Livro l4 = new Livro("Pedro", "teste4", 2021, 2);
-        CD l2 = new CD("Alex", "titulo", 2021, 4);
-        Livro l3 = new Livro("Alex", "titulo3", 2021, 4);
+        Livro l1 = new Livro("Pedro", "Pinoquio", 2010, 4);
+        Livro l4 = new Livro("Roberto", "Ceu estrelado", 1998, 2);
+        CD l2 = new CD("Alex", "Musica para Churrasco", 2023, 8);
+        Livro l3 = new Livro("Fernando", "Computador no mundo", 2021, 4);
         bib.addItem(l1);
         bib.addItem(l2);
         bib.addItem(l3);
         bib.addItem(l4);
 
-        bib.addUsuario("jorge");
-        bib.addUsuario("felipe");
+        bib.addUsuario("Jorge");
+        bib.addUsuario("Felipe");
         //////////////
         System.out.println("Bem vindo a biblioteca!");
         do {
             System.out.print("\n");
             System.out.println("Escolha o numero do que deseja fazer: ");
             System.out.println("1. SubMenu Usuarios");// menu de CRUD para usuario
-            System.out.println("2. SubMeunu Itens");// menu de CRUD para itens e opção de pesquisar por item conforme
-                                                    // requisito C
-            System.out.println("3. SubMenu Relatiorios");// menu para relatorios do requisito D
+            System.out.println("2. SubMeunu Itens");// menu de CRUD para itens e opção de pesquisar por item conforme                                              // requisito C
+            System.out.println("3. SubMenu Relatorios");// menu para relatorios do requisito D
             System.out.println("0. Sair Do Sistema");
 
             escolha = entrada.nextInt();
