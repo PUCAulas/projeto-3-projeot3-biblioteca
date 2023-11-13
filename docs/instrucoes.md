@@ -1,3 +1,3 @@
 # Instruções de uso
 
-Coloque neste arquivo qualquer instrução que julgar pertinente para a execução correta do sistema: arquivos de configuração, arquivos de dados, possíveis dados de teste etc.
+Esse sistema é um sistema simples de biblioteca. Já foram inseridos alguns itens na biblioteca previamente, mas é possível cadastrar novos itens. Para acessar essas funcionalidades, navegue pelos menus entrando com os números das funções desejadas e informe as informações pedidas conforme o necessário.
