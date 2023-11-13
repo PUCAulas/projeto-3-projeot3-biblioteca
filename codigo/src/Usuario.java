@@ -19,13 +19,13 @@ public class Usuario {
 
     public void listarEmprestimos(){
         for(Emprestimo emprestimo : this.emprestimos)
-            System.out.println("Id Item Emrpestado: "+emprestimo.getItemId() + " Data Maxima De Devolucao: " + emprestimo.getDataDevolucao()
+            System.out.println("Id Item Emprestado: "+emprestimo.getItemId() + " Data Maxima De Devolucao: " + emprestimo.getDataDevolucao()
             + " Esta Emprestado: "+ emprestimo.isEmprestado());
     }
     public void listarEmprestimosEmprestados(){
         for(Emprestimo emprestimo : this.emprestimos){
             if(emprestimo.isEmprestado())
-            System.out.println("Id Item Emrpestado: "+emprestimo.getItemId() + " Data Maxima De Devolucao: " + emprestimo.getDataDevolucao());
+            System.out.println("Id Item Emprestado: "+emprestimo.getItemId() + " Data Maxima De Devolucao: " + emprestimo.getDataDevolucao());
         }
     }
 
