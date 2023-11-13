@@ -1,0 +1,20 @@
+INDEX VERSION 1.132+/Users/pedroafonso/projeto-3-projeot3-biblioteca-1/.metadata/.plugins/org.eclipse.jdt.core
+1343535362.index
+2633276890.index
+2002912053.index
+3721257179.index
+1228301096.index
+543092008.index
+814173117.index
+2299782200.index
+1779566330.index
+14372687.index
+3402793935.index
+4283064933.index
+3244909108.index
+2026805413.index
+1700466992.index
+3913275447.index
+3713063492.index
+1865797976.index
+691380783.index

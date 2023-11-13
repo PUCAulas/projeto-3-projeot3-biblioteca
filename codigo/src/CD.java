@@ -1,5 +1,8 @@
-public class CD extends ItemBibli implements ItemEmprestavel{
+package codigo.src;
+
+public class CD extends ItemBibli implements ItemEmprestavel {
     private int exemplaresDisponiveis;
+
     public int getExemplaresDisponiveis() {
         return exemplaresDisponiveis;
     }
@@ -15,11 +18,10 @@ public class CD extends ItemBibli implements ItemEmprestavel{
     }
 
     @Override
-    public void emprestar() throws Exception{
-        if (this.getExemplaresDisponiveis()<2) {
+    public void emprestar() throws Exception {
+        if (this.getExemplaresDisponiveis() < 2) {
             throw new Exception("Nao ha exemplares suficientes para pegar emprestado!");
-        }
-        else{
+        } else {
             this.exemplaresDisponiveis--;
         }
     }
@@ -28,6 +30,5 @@ public class CD extends ItemBibli implements ItemEmprestavel{
     public void devolver() {
         this.exemplaresDisponiveis++;
     }
-    
-    
+
 }

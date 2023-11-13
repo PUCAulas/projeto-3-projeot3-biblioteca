@@ -1,3 +1,5 @@
+package codigo.src;
+
 import java.util.Scanner;
 
 public class App {
@@ -25,7 +27,8 @@ public class App {
             System.out.print("\n");
             System.out.println("Escolha o numero do que deseja fazer: ");
             System.out.println("1. SubMenu Usuarios");// menu de CRUD para usuario
-            System.out.println("2. SubMeunu Itens");// menu de CRUD para itens e opção de pesquisar por item conforme                                              // requisito C
+            System.out.println("2. SubMeunu Itens");// menu de CRUD para itens e opção de pesquisar por item conforme //
+                                                    // requisito C
             System.out.println("3. SubMenu Relatorios");// menu para relatorios do requisito D
             System.out.println("0. Sair Do Sistema");
 
@@ -52,21 +55,19 @@ public class App {
         } while (escolha != 0);
     }
 
-    //menu geral de itens
-    public static void subItens(Scanner entrada, Biblioteca bib){
+    // menu geral de itens
+    public static void subItens(Scanner entrada, Biblioteca bib) {
         int subChoice = 110;
 
-        do {//falta crud dos itens
+        do {// falta crud dos itens
             System.out.print("\n");
             System.out.println("Submenu da Opção 2, Itens:");
             System.out.println("1. Pesquisar");
             System.out.println("2. Cadastrar Novo Item");
             System.out.println("3. Listar");
             System.out.println("0. Sair");
-            
-            
+
             subChoice = entrada.nextInt();
-           
 
             switch (subChoice) {
                 case 0:
@@ -128,23 +129,22 @@ public class App {
             }
         } while (subChoice != 0);
     }
-    //menu de listar de itens
-    public static void subListarItem(Scanner entrada, Biblioteca bib){
+
+    // menu de listar de itens
+    public static void subListarItem(Scanner entrada, Biblioteca bib) {
         int subChoice = 110;
 
-        do {//falta crud dos itens
+        do {// falta crud dos itens
             System.out.print("\n");
             System.out.println("Escolha A Lista Desejada:");
             System.out.println("1. Listar Por Titulo");
             System.out.println("2. Listar Por Autor");
             System.out.println("3. Listar Por Ano");
             System.out.println("4. Listar Por Tipo");
-             System.out.println("5. Listar Por Id");
+            System.out.println("5. Listar Por Id");
             System.out.println("0. Sair");
-            
-            
+
             subChoice = entrada.nextInt();
-           
 
             switch (subChoice) {
                 case 0:
@@ -171,11 +171,12 @@ public class App {
             }
         } while (subChoice != 0);
     }
-    //menu de pesquisa de itens
-    public static void subPesquisaItem(Scanner entrada, Biblioteca bib){
+
+    // menu de pesquisa de itens
+    public static void subPesquisaItem(Scanner entrada, Biblioteca bib) {
         int subChoice = 110;
 
-        do {//falta crud dos itens
+        do {// falta crud dos itens
             System.out.print("\n");
             System.out.println("Escolha A Pesquisa Desejada:");
             System.out.println("1. Pesquisar Por Titulo");
@@ -183,10 +184,8 @@ public class App {
             System.out.println("3. Pesquisar Por Ano");
             System.out.println("4. Pesquisar Por Tipo");
             System.out.println("0. Sair");
-            
-            
+
             subChoice = entrada.nextInt();
-           
 
             switch (subChoice) {
                 case 0:
@@ -230,7 +229,7 @@ public class App {
                         case 5:
                             bib.pesquisarPorTipo("Revista");
                             break;
-                    
+
                         default:
                             break;
                     }
@@ -241,7 +240,7 @@ public class App {
             }
         } while (subChoice != 0);
     }
-    //Fim de itens
+    // Fim de itens
     ///////////////////////////////////////
 
     public static void subUsuario(Scanner entrada, Biblioteca bib) {
@@ -272,7 +271,8 @@ public class App {
                     bib.addUsuario(entrada.nextLine());
                     break;
                 case 3:
-                    bib.imprimirUsuarios();;
+                    bib.imprimirUsuarios();
+                    ;
                     System.out.println("Digite o id do usuário: ");
                     int idUser = entrada.nextInt();
                     bib.listarEmprestimosUsuario(idUser);
@@ -288,7 +288,7 @@ public class App {
                     System.out.println("Digite A Data Do Inicio Do Emprestimo: (dd/mm/yyyy)");
                     String data = entrada.nextLine();
                     bib.addEmpretimo(idUsuario, idItem, data);
-                    
+
                     break;
                 case 5:
                     bib.imprimirUsuarios();
@@ -305,7 +305,6 @@ public class App {
             }
         } while (subChoice != 0);
     }
-
 
     public static void subRelatorio(Scanner entrada, Biblioteca bib) {
         int subChoice;
