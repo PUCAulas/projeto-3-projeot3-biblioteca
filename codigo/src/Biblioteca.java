@@ -261,7 +261,7 @@ public class Biblioteca {
                 }
             }
             Collections.sort(itensPorUsuario);
-            System.out.print(user.getNome() + " - ");
+            System.out.print("\n" + user.getNome() + " - ");
             for(String titulo : itensPorUsuario) {
                 System.out.print(titulo + ", ");
             }

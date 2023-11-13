@@ -9,7 +9,7 @@ public class App {
         // teste APAGAR DEPOIS
         Livro l1 = new Livro("Pedro", "Pinoquio", 2010, 4);
         Livro l4 = new Livro("Roberto", "Ceu estrelado", 1998, 2);
-        CD l2 = new CD("Alex", "Musica para Churrasco", 2023, 8);
+        CD l2 = new CD("Alex", "Musicas para Churrasco", 2023, 8);
         Livro l3 = new Livro("Fernando", "Computador no mundo", 2021, 4);
         bib.addItem(l1);
         bib.addItem(l2);
@@ -18,6 +18,7 @@ public class App {
 
         bib.addUsuario("Jorge");
         bib.addUsuario("Felipe");
+        bib.addEmpretimo(1, 3, "01/11/2023");
         //////////////
         System.out.println("Bem vindo a biblioteca!");
         do {
