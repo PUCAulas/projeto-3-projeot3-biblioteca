@@ -230,7 +230,7 @@ public class Biblioteca {
         for(ItemBibli item : aux) {
             int itemId = item.getID();
             int vezesEmprestado = vezesItemEmprestado(itemId);
-            System.out.println(item.getTitulo() + " de " + item.getAnoPublicacao() + " foi emprestado " + vezesEmprestado + " vezes");
+            System.out.println(item.getTitulo() + " de " + item.getAno() + " foi emprestado " + vezesEmprestado + " vezes");
         }
     }
 

@@ -80,10 +80,6 @@ public abstract class ItemBibli {
         this.exemplares = exemplares;
     }
 
-    public int getAnoPublicacao() {
-        return 0;
-    }
-
     public void adicionaEmprestimo(Emprestimo nEmprestimo) {
         emprestimo.add(nEmprestimo);
     }
