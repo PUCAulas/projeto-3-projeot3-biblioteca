@@ -7,12 +7,14 @@ public class App {
         int escolha;
         Biblioteca bib = new Biblioteca();
         // teste APAGAR DEPOIS
-        Livro l1 = new Livro("Pedro", "titulo1", 2021, 4);
-        CD l2 = new CD("Alex", "titulo2", 2021, 4);
+        Livro l1 = new Livro("Pedro", "titulo2", 2021, 4);
+        Livro l4 = new Livro("Pedro", "teste4", 2021, 2);
+        CD l2 = new CD("Alex", "titulo", 2021, 4);
         Livro l3 = new Livro("Alex", "titulo3", 2021, 4);
         bib.addItem(l1);
         bib.addItem(l2);
         bib.addItem(l3);
+        bib.addItem(l4);
 
         bib.addUsuario("jorge");
         bib.addUsuario("felipe");
@@ -60,8 +62,6 @@ public class App {
             System.out.println("1. Pesquisar");
             System.out.println("2. Cadastrar Novo Item");
             System.out.println("3. Listar");
-            System.out.println("4. Editar");//Falta
-            System.out.println("5. Deletar");//Falta
             System.out.println("0. Sair");
             
             
@@ -122,14 +122,6 @@ public class App {
                 case 3:
                     subListarItem(entrada, bib);
                     break;
-                case 4:
-                    System.out.println("Houve Um Problema");
-                    
-                    break;
-                case 5:
-                    System.out.println("Houve Um Problema");
-                    
-                    break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
                     break;
@@ -147,6 +139,7 @@ public class App {
             System.out.println("2. Listar Por Autor");
             System.out.println("3. Listar Por Ano");
             System.out.println("4. Listar Por Tipo");
+             System.out.println("5. Listar Por Id");
             System.out.println("0. Sair");
             
             
@@ -168,6 +161,9 @@ public class App {
                     break;
                 case 4:
                     bib.listarPorTipo();
+                    break;
+                case 5:
+                    bib.listarItens();
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
@@ -258,7 +254,7 @@ public class App {
             System.out.println("2. Adicionar novo usuário");
             System.out.println("3. Itens emprestados de um usuario");
             System.out.println("4. Pegar um item emprestado");
-            
+            System.out.println("5. Devolver um item emprestado");
             System.out.println("0. Sair");
 
             subChoice = entrada.nextInt();
@@ -276,15 +272,32 @@ public class App {
                     bib.addUsuario(entrada.nextLine());
                     break;
                 case 3:
-                    bib.imprimirUsuarios();
-                    entrada.nextLine();
+                    bib.imprimirUsuarios();;
                     System.out.println("Digite o id do usuário: ");
-                    bib.pesquisarPorAno(entrada.nextInt());
+                    int idUser = entrada.nextInt();
+                    bib.listarEmprestimosUsuario(idUser);
                     break;
                 case 4:
                     bib.imprimirUsuarios();
+                    System.out.println("Digite O Id Do Usuario Desejado: ");
+                    int idUsuario = entrada.nextInt();
+                    bib.listarEmprestaveis();
+                    System.out.println("Digite O Id Do Item Desejado: ");
+                    int idItem = entrada.nextInt();
                     entrada.nextLine();
-                    System.out.println();
+                    System.out.println("Digite A Data Do Inicio Do Emprestimo: (dd/mm/yyyy)");
+                    String data = entrada.nextLine();
+                    bib.addEmpretimo(idUsuario, idItem, data);
+                    
+                    break;
+                case 5:
+                    bib.imprimirUsuarios();
+                    System.out.println("Digite O Id Do Usuario Desejado: ");
+                    int idUsua = entrada.nextInt();
+                    bib.listarEmprestimosUsuarioEmprestado(idUsua);
+                    System.out.println("Digite O Id Do Item Desejado: ");
+                    int idDevolvido = entrada.nextInt();
+                    bib.devolverItem(idUsua, idDevolvido);
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
