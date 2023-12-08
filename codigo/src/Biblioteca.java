@@ -7,20 +7,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Biblioteca {
+    private static Biblioteca instance;
     private ArrayList<ItemBibli> itens;
     private ArrayList<Usuario> usuarios;
     private ArrayList<Emprestimo> emprestimos;
 
-    public Biblioteca() {
+    //Singleton
+    private Biblioteca() {
         this.itens = new ArrayList<ItemBibli>();
         this.usuarios = new ArrayList<Usuario>();
         this.emprestimos = new ArrayList<Emprestimo>();
     }
+
+    public static Biblioteca getInstance(){
+        if (instance == null) {
+            instance = new Biblioteca();
+        }
+        return instance;
+    }
+    //
+    
     // Pesquisas
-    // Eu segui o enunciado, entao vc pesquisa por um nome, titulo, autor ou tipo
-    // e todos os itens encontrados com o parametro pesquisado sao listados em ordem
-    // alfabetica por titulo
-    // foi isso que eu entendi no requsito C
 
     public void pesquisarPorTitulo(String tituloPesq) {
         ArrayList<ItemBibli> aux = new ArrayList<>();

@@ -17,7 +17,7 @@ public class BibliotecaTest {
 
     @Before
     public void setUp() {
-        biblioteca = new Biblioteca();
+        biblioteca = Biblioteca.getInstance();
     }
 
     @Test

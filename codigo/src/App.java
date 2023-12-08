@@ -7,7 +7,7 @@ public class App {
         // menu
         Scanner entrada = new Scanner(System.in);
         int escolha;
-        Biblioteca bib = new Biblioteca();
+        Biblioteca bib = Biblioteca.getInstance();
         // teste APAGAR DEPOIS
         Livro l1 = new Livro("Pedro", "Pinoquio", 2010, 4);
         CD l2 = new CD("Alex", "Musica para Churrasco", 2023, 8);
