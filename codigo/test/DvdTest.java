@@ -15,7 +15,7 @@ public class DvdTest {
     @Before
     public void setUp() {
         Criador fabricaDVD = new FabricaDVD();
-        dvd = (DVD) fabricaDVD.criarItemBibli("Autor1", "Livro1", 2000, 2);
+        dvd = (DVD) fabricaDVD.criarItemBibli("Autor1", "Livro1", 2000, 2, "Exatas");
     }
 
     @Test

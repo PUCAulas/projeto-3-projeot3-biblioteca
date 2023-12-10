@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import codigo.src.ControlleItens.ItemBibli;
 import codigo.src.ControlleItens.ItemEmprestavel;
@@ -342,4 +344,39 @@ public class Biblioteca {
         }
     }
 
+    //Recomendacao
+    public void recomendarItens(Usuario usuario) {
+        // Obtém todas as categorias de interesse do usuário
+        List<String> categoriasDeInteresse = usuario.getCategoriasDeInteresse();
+
+        // Filtra os itens disponíveis na biblioteca que correspondem às categorias de interesse do usuário
+        List<ItemBibli> itensFiltrados = itens.stream()
+                .filter(item -> categoriasDeInteresse.contains(item.getGenero()))
+                .collect(Collectors.toList());
+
+        // Ordena os itens filtrados com base nos interesses do usuário (pode ser ajustado conforme necessário)
+        List<ItemBibli> itensRecomendados = itensFiltrados.stream()
+                .sorted(Comparator.comparingDouble(item -> calcularPontuacao(item, usuario)))
+                .collect(Collectors.toList());
+
+        // Retorna os três itens mais recomendados
+        System.out.println(itensRecomendados.subList(0, Math.min(3, itensRecomendados.size())));
+    }
+
+    // Método para calcular a pontuação de um item com base nos interesses do usuário
+    private double calcularPontuacao(ItemBibli item, Usuario usuario) {
+        double pontuacao = 0.0;
+
+        // Adiciona pontuação se o item for do gênero de interesse do usuário
+        if (usuario.getCategoriasDeInteresse().contains(item.getGenero())) {
+            pontuacao += 1.0;
+        }
+
+        // Adiciona pontuação com base no histórico do usuário na biblioteca
+        pontuacao += emprestimos.stream()
+                .filter(emprestimo -> emprestimo.getIdUser() == usuario.getIdUsuario() && emprestimo.getItemId() == item.getID())
+                .count();
+
+        return pontuacao;
+    }
 }

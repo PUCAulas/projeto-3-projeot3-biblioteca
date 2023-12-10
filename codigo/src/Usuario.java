@@ -11,7 +11,7 @@ public class Usuario {
     private static int proximoId = 1;
     private String nome, curso;
     private ArrayList<Emprestimo> emprestimos;
-    private ArrayList<String> interesses;
+    private ArrayList<String> categoriasDeInteresse;
 
     public Usuario(String nome, String curso) {
         this.idUsuario = proximoId;
@@ -19,15 +19,15 @@ public class Usuario {
         this.nome = nome;
         this.curso = curso;
         this.emprestimos = new ArrayList<Emprestimo>();
-        this.interesses = new ArrayList<String>();
+        this.categoriasDeInteresse = new ArrayList<String>();
     }
 
-    public ArrayList<String> getInteresses() {
-        return interesses;
+    public ArrayList<String> getCategoriasDeInteresse() {
+        return categoriasDeInteresse;
     }
 
     public void addInteresse(String interesse) {
-        interesses.add(interesse)
+        categoriasDeInteresse.add(interesse);
     }
 
     public void listarEmprestimos() {
@@ -47,10 +47,6 @@ public class Usuario {
 
     public ArrayList<Emprestimo> getEmprestimos() {
         return emprestimos;
-    }
-
-    public ArrayList<String> getGenerosEmprestimos() {
-
     }
     
     public void addEmprestimos(Emprestimo novoEmprestimo) throws Exception {

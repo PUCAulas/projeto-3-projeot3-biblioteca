@@ -1,5 +1,6 @@
 package codigo.src;
 
+import java.util.List;
 import java.util.Scanner;
 
 import codigo.src.ControlleItens.*;
@@ -21,8 +22,8 @@ public class App {
         bib.addItem(l3);
         bib.addItem(l4);
 
-        bib.addUsuario("Jorge");
-        bib.addUsuario("Felipe");
+        bib.addUsuario("Jorge", "Matematica");
+        bib.addUsuario("Felipe", "Filosofia");
         bib.addEmpretimo(1, 3, "01/11/2023");
         //////////////
         System.out.println("Bem vindo a biblioteca!");
@@ -264,6 +265,7 @@ public class App {
             System.out.println("3. Itens emprestados de um usuario");
             System.out.println("4. Pegar um item emprestado");
             System.out.println("5. Devolver um item emprestado");
+            System.out.println("6. Recomendacoes");
             System.out.println("0. Sair");
 
             subChoice = entrada.nextInt();
@@ -310,6 +312,13 @@ public class App {
                     System.out.println("Digite O Id Do Item Desejado: ");
                     int idDevolvido = entrada.nextInt();
                     bib.devolverItem(idUsua, idDevolvido);
+                    break;
+                case 6:
+                    bib.imprimirUsuarios();
+                    System.out.println("Digite O Id Do Usuario Desejado: ");
+                    int idUs = entrada.nextInt();
+                    Usuario usRec = bib.getUsuarioPorId(idUs);
+                    bib.recomendarItens(usRec);
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");

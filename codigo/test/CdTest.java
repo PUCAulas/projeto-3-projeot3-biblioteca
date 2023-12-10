@@ -15,7 +15,7 @@ public class CdTest {
     @Before
     public void setUp() {
         Criador fabricaCD = new FabricaCD();
-        cd = (CD) fabricaCD.criarItemBibli("Autor1", "Livro1", 2000, 2);
+        cd = (CD) fabricaCD.criarItemBibli("Autor1", "Livro1", 2000, 2, "Exatas");
     }
 
     @Test

@@ -15,7 +15,7 @@ public class LivroTest {
     @Before
     public void setUp() {
         Criador fabricaLivro = new FabricaLivro();
-        livro = (Livro) fabricaLivro.criarItemBibli("Autor1", "Livro1", 2000, 2);
+        livro = (Livro) fabricaLivro.criarItemBibli("Autor1", "Livro1", 2000, 2, "Exatas");
     }
 
     @Test

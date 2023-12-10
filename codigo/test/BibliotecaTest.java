@@ -23,12 +23,12 @@ public class BibliotecaTest {
     @Test
     public void testRelatorioItensEmprestimos() throws Exception {
         // Adiciona usuários
-        biblioteca.addUsuario("Alice");
-        biblioteca.addUsuario("Bob");
+        biblioteca.addUsuario("Alice", "Engenharia");
+        biblioteca.addUsuario("Bob", "Filosofia");
 
         // Adiciona itens
-        biblioteca.addItem(new Livro("Autor1", "Livro1", 2000, 1));
-        biblioteca.addItem(new Livro("Autor2", "Livro2", 2010, 1));
+        biblioteca.addItem(new Livro("Autor1", "Livro1", 2000, 1, "Exatas"));
+        biblioteca.addItem(new Livro("Autor2", "Livro2", 2010, 1, "Exatas"));
 
         // Empréstimos
         biblioteca.addEmpretimo(1, 1, "01/01/2023");
