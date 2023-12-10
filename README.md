@@ -11,4 +11,5 @@ Seu grupo foi designado para desenvolver um sistema de gerenciamento de bibliote
 
 ## Professor responsável 
 
-* Jhonatan
+* Jhonatan (começo do projeto)
+* Juliana Padilha 
