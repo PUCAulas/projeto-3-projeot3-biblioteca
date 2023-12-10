@@ -215,23 +215,56 @@ public class Biblioteca {
         this.itens.add(itemNovo);
     }
 
+    // public void addEmpretimo(int idUsuario, int idItem, String dataEmprestimo) {
+    //     try {
+
+    //         Emprestimo novEmprestimo = new Emprestimo(idUsuario, idItem, dataEmprestimo);
+    //         getUsuarioPorId(idUsuario).addEmprestimos(novEmprestimo);
+    //         ItemBibli itemEmprestimo = getItemPorId(idItem);
+    //         if (itemEmprestimo instanceof ItemEmprestavel) {
+    //             ((ItemEmprestavel) itemEmprestimo).emprestar();
+    //             this.emprestimos.add(novEmprestimo);
+    //             System.out.println("Item emprestado com sucesso!");
+    //         } else {
+    //             System.out.println("Nao foi possivel emprestar esse item!");
+    //         }
+    //     } catch (Exception e) {
+    //         System.out.println(e.getMessage());
+    //     }
+    // }
     public void addEmpretimo(int idUsuario, int idItem, String dataEmprestimo) {
         try {
-
+            // Verifique se o item já está emprestado
+            if (isItemAlreadyBorrowed(idItem)) {
+                System.out.println("O item já está emprestado e não pode ser emprestado novamente.");
+                return;
+            }
+    
             Emprestimo novEmprestimo = new Emprestimo(idUsuario, idItem, dataEmprestimo);
             getUsuarioPorId(idUsuario).addEmprestimos(novEmprestimo);
             ItemBibli itemEmprestimo = getItemPorId(idItem);
+    
             if (itemEmprestimo instanceof ItemEmprestavel) {
                 ((ItemEmprestavel) itemEmprestimo).emprestar();
                 this.emprestimos.add(novEmprestimo);
                 System.out.println("Item emprestado com sucesso!");
             } else {
-                System.out.println("Nao foi possivel emprestar esse item!");
+                System.out.println("Não foi possível emprestar esse item!");
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+    
+    private boolean isItemAlreadyBorrowed(int idItem) {
+        for (Emprestimo emprestimo : this.emprestimos) {
+            if (emprestimo.getItemId() == idItem && emprestimo.isEmprestado()) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
 
     public Emprestimo getEmprestimoPorId(int idUsuario, int idItem) {
         for (Emprestimo emprestimo : this.emprestimos) {
