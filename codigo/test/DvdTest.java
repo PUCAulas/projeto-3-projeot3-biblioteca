@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import codigo.src.ControlleItens.DVD;
+import codigo.src.ControlleItens.FabricaItens.Criador;
+import codigo.src.ControlleItens.FabricaItens.FabricaDVD;
 
 public class DvdTest {
 
@@ -12,7 +14,8 @@ public class DvdTest {
 
     @Before
     public void setUp() {
-        dvd = new DVD("Diretor1", "Filme1", 2015, 2);
+        Criador fabricaDVD = new FabricaDVD();
+        dvd = (DVD) fabricaDVD.criarItemBibli("Autor1", "Livro1", 2000, 2);
     }
 
     @Test

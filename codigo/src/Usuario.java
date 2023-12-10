@@ -42,7 +42,7 @@ public class Usuario {
         if (podeEmprestar()) {
             this.emprestimos.add(novoEmprestimo);
         } else {
-            throw new Exception("Este usuario nao pode fazer emprestimos!");
+            throw new Exception("Este usuario nao pode fazer emprestimos! Livro Atrasado ou Numero Total de Emprestimos por vez Atingido");
         }
     }
 

@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import codigo.src.ControlleItens.CD;
+import codigo.src.ControlleItens.FabricaItens.Criador;
+import codigo.src.ControlleItens.FabricaItens.FabricaCD;
 
 public class CdTest {
 
@@ -12,7 +14,8 @@ public class CdTest {
 
     @Before
     public void setUp() {
-        cd = new CD("Artista1", "Album1", 2020, 2);
+        Criador fabricaCD = new FabricaCD();
+        cd = (CD) fabricaCD.criarItemBibli("Autor1", "Livro1", 2000, 2);
     }
 
     @Test

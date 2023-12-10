@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import codigo.src.ControlleItens.Livro;
+import codigo.src.ControlleItens.FabricaItens.Criador;
+import codigo.src.ControlleItens.FabricaItens.FabricaLivro;
 
 public class LivroTest {
 
@@ -12,7 +14,8 @@ public class LivroTest {
 
     @Before
     public void setUp() {
-        livro = new Livro("Autor1", "Livro1", 2000, 2);
+        Criador fabricaLivro = new FabricaLivro();
+        livro = (Livro) fabricaLivro.criarItemBibli("Autor1", "Livro1", 2000, 2);
     }
 
     @Test
