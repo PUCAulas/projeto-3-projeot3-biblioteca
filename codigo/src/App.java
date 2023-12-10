@@ -264,6 +264,7 @@ public class App {
             System.out.println("3. Itens emprestados de um usuario");
             System.out.println("4. Pegar um item emprestado");
             System.out.println("5. Devolver um item emprestado");
+            System.out.println("6. Adicionar novo interesse a um usuario");
             System.out.println("0. Sair");
 
             subChoice = entrada.nextInt();
@@ -300,7 +301,6 @@ public class App {
                     System.out.println("Digite A Data Do Inicio Do Emprestimo: (dd/mm/yyyy)");
                     String data = entrada.nextLine();
                     bib.addEmpretimo(idUsuario, idItem, data);
-
                     break;
                 case 5:
                     bib.imprimirUsuarios();
@@ -311,6 +311,14 @@ public class App {
                     int idDevolvido = entrada.nextInt();
                     bib.devolverItem(idUsua, idDevolvido);
                     break;
+                case 6:
+                    bib.imprimirUsuarios();
+                    System.out.println("Digite O Id Do Usuario Desejado: ");
+                    int idUsuar = entrada.nextInt();
+                    System.out.println("Digite o interesse do usuario: ");
+                    String interesse = entrada.nextLine();
+                    Usuario usuar = bib.getUsuarioPorId(idUsuar);
+                    usuar.addInteresse(interesse);
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
                     break;

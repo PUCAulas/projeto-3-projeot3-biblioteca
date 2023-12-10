@@ -27,7 +27,7 @@ public class Usuario {
     }
 
     public void addInteresse(String interesse) {
-        interesses.add(interesse)
+        interesses.add(interesse);
     }
 
     public void listarEmprestimos() {
