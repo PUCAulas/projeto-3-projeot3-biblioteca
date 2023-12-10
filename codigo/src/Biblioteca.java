@@ -6,6 +6,9 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
+import codigo.src.ControlleItens.ItemBibli;
+import codigo.src.ControlleItens.ItemEmprestavel;
+
 public class Biblioteca {
     private static Biblioteca instance;
     private ArrayList<ItemBibli> itens;

@@ -2,6 +2,9 @@ package codigo.src;
 
 import java.util.Scanner;
 
+import codigo.src.ControlleItens.*;
+import codigo.src.ControlleItens.FabricaItens.*;
+
 public class App {
     public static void main(String[] args) throws Exception {
         // menu
@@ -96,23 +99,28 @@ public class App {
                     int exemplares = entrada.nextInt();
                     switch (tipo) {
                         case 1:
-                            Livro novoLivro = new Livro(autor, titulo, ano, exemplares);
+                            Criador fabricaLivro = new FabricaLivro();
+                            ItemBibli novoLivro = fabricaLivro.criarItemBibli(autor, titulo, ano, exemplares);
                             bib.addItem(novoLivro);
                             break;
                         case 2:
-                            Tese novoTese = new Tese(autor, titulo, ano, exemplares);
+                            Criador fabricaTese = new FabricaTese();
+                            ItemBibli novoTese = fabricaTese.criarItemBibli(autor, titulo, ano, exemplares);
                             bib.addItem(novoTese);
                             break;
                         case 3:
-                            CD novoCD = new CD(autor, titulo, ano, exemplares);
+                            Criador fabricaCD = new FabricaCD();
+                            ItemBibli novoCD = fabricaCD.criarItemBibli(autor, titulo, ano, exemplares);
                             bib.addItem(novoCD);
                             break;
                         case 4:
-                            DVD novoDVD = new DVD(autor, titulo, ano, exemplares);
+                            Criador fabricaDVD = new FabricaDVD();
+                            ItemBibli novoDVD = fabricaDVD.criarItemBibli(autor, titulo, ano, exemplares);
                             bib.addItem(novoDVD);
                             break;
                         case 5:
-                            Revista novoRevista = new Revista(autor, titulo, ano, exemplares);
+                            Criador fabricaRevista = new FabricaRevista();
+                            ItemBibli novoRevista = fabricaRevista.criarItemBibli(autor, titulo, ano, exemplares);
                             bib.addItem(novoRevista);
                             break;
                         default:

@@ -1,4 +1,4 @@
-package codigo.src;
+package codigo.src.ControlleItens;
 
 public class Livro extends ItemBibli implements ItemEmprestavel {
     private int exemplaresDisponiveis;

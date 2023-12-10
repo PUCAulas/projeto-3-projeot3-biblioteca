@@ -1,4 +1,4 @@
-package codigo.src;
+package codigo.src.ControlleItens;
 
 public class Tese extends ItemBibli {
     // Construtor que chama o construtor da classe mãe

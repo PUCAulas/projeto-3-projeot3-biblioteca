@@ -1,9 +1,10 @@
 package codigo.test;
 
-import codigo.src.CD;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import codigo.src.ControlleItens.CD;
 
 public class CdTest {
 

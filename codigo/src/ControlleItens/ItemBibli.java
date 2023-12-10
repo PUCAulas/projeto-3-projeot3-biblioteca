@@ -1,6 +1,8 @@
-package codigo.src;
+package codigo.src.ControlleItens;
 
 import java.util.List;
+
+import codigo.src.Emprestimo;
 
 public abstract class ItemBibli {
 

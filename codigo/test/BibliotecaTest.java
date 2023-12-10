@@ -1,7 +1,7 @@
 package codigo.test;
 
 import codigo.src.Biblioteca;
-import codigo.src.Livro;
+import codigo.src.ControlleItens.Livro;
 
 import static org.junit.Assert.*;
 import org.junit.Before;

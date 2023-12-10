@@ -1,4 +1,4 @@
-package codigo.src;
+package codigo.src.ControlleItens;
 
 public interface ItemEmprestavel {
     void emprestar() throws Exception;
