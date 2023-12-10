@@ -9,14 +9,25 @@ public class Usuario {
 
     private int idUsuario;
     private static int proximoId = 1;
-    private String nome;
+    private String nome, curso;
     private ArrayList<Emprestimo> emprestimos;
+    private ArrayList<String> interesses;
 
-    public Usuario(String nome) {
+    public Usuario(String nome, String curso) {
         this.idUsuario = proximoId;
         proximoId++;
         this.nome = nome;
+        this.curso = curso;
         this.emprestimos = new ArrayList<Emprestimo>();
+        this.interesses = new ArrayList<String>();
+    }
+
+    public ArrayList<String> getInteresses() {
+        return interesses;
+    }
+
+    public void addInteresse(String interesse) {
+        interesses.add(interesse)
     }
 
     public void listarEmprestimos() {
@@ -38,6 +49,10 @@ public class Usuario {
         return emprestimos;
     }
 
+    public ArrayList<String> getGenerosEmprestimos() {
+
+    }
+    
     public void addEmprestimos(Emprestimo novoEmprestimo) throws Exception {
         if (podeEmprestar()) {
             this.emprestimos.add(novoEmprestimo);
@@ -56,6 +71,14 @@ public class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
     }
 
     public boolean temEmprestimoAtrasado() {

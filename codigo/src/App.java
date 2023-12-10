@@ -6,16 +6,16 @@ import codigo.src.ControlleItens.*;
 import codigo.src.ControlleItens.FabricaItens.*;
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception { 
         // menu
         Scanner entrada = new Scanner(System.in);
         int escolha;
         Biblioteca bib = Biblioteca.getInstance();
         // teste APAGAR DEPOIS
-        Livro l1 = new Livro("Pedro", "Pinoquio", 2010, 4);
-        CD l2 = new CD("Alex", "Musica para Churrasco", 2023, 8);
-        Livro l3 = new Livro("Fernando", "Computador no mundo", 2021, 4);
-        Livro l4 = new Livro("Roberto", "Ceu estrelado", 1998, 2);
+        Livro l1 = new Livro("Pedro", "Pinoquio", 2010, 4, "Fantasia");
+        CD l2 = new CD("Alex", "Musica para Churrasco", 2023, 8, "Pagode");
+        Livro l3 = new Livro("Fernando", "Computador no mundo", 2021, 4, "Atualidade");
+        Livro l4 = new Livro("Roberto", "Ceu estrelado", 1998, 2, "Ficção");
         bib.addItem(l1);
         bib.addItem(l2);
         bib.addItem(l3);
@@ -97,30 +97,32 @@ public class App {
                     int ano = entrada.nextInt();
                     System.out.println("Quantos Exemplares Serao Registrados Do Item?");
                     int exemplares = entrada.nextInt();
+                    System.out.println("Qual O genero Do Item?");
+                    String genero = entrada.nextLine();
                     switch (tipo) {
                         case 1:
                             Criador fabricaLivro = new FabricaLivro();
-                            ItemBibli novoLivro = fabricaLivro.criarItemBibli(autor, titulo, ano, exemplares);
+                            ItemBibli novoLivro = fabricaLivro.criarItemBibli(autor, titulo, ano, exemplares, genero);
                             bib.addItem(novoLivro);
                             break;
                         case 2:
                             Criador fabricaTese = new FabricaTese();
-                            ItemBibli novoTese = fabricaTese.criarItemBibli(autor, titulo, ano, exemplares);
+                            ItemBibli novoTese = fabricaTese.criarItemBibli(autor, titulo, ano, exemplares, genero);
                             bib.addItem(novoTese);
                             break;
                         case 3:
                             Criador fabricaCD = new FabricaCD();
-                            ItemBibli novoCD = fabricaCD.criarItemBibli(autor, titulo, ano, exemplares);
+                            ItemBibli novoCD = fabricaCD.criarItemBibli(autor, titulo, ano, exemplares, genero);
                             bib.addItem(novoCD);
                             break;
                         case 4:
                             Criador fabricaDVD = new FabricaDVD();
-                            ItemBibli novoDVD = fabricaDVD.criarItemBibli(autor, titulo, ano, exemplares);
+                            ItemBibli novoDVD = fabricaDVD.criarItemBibli(autor, titulo, ano, exemplares, genero);
                             bib.addItem(novoDVD);
                             break;
                         case 5:
                             Criador fabricaRevista = new FabricaRevista();
-                            ItemBibli novoRevista = fabricaRevista.criarItemBibli(autor, titulo, ano, exemplares);
+                            ItemBibli novoRevista = fabricaRevista.criarItemBibli(autor, titulo, ano, exemplares, genero);
                             bib.addItem(novoRevista);
                             break;
                         default:
@@ -276,11 +278,13 @@ public class App {
                 case 2:
                     entrada.nextLine();
                     System.out.println("Digite o nome do usuario: ");
-                    bib.addUsuario(entrada.nextLine());
+                    String nome = entrada.nextLine();
+                    System.out.println("Digite o curso do usuario: ");
+                    String curso = entrada.nextLine();
+                    bib.addUsuario(nome, curso);
                     break;
                 case 3:
                     bib.imprimirUsuarios();
-                    ;
                     System.out.println("Digite o id do usuário: ");
                     int idUser = entrada.nextInt();
                     bib.listarEmprestimosUsuario(idUser);

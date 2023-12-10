@@ -12,8 +12,8 @@ public class CD extends ItemBibli implements ItemEmprestavel {
     }
 
     // Construtor que chama o construtor da classe mãe
-    public CD(String autor, String titulo, int ano, int exemplares) {
-        super(autor, titulo, ano, exemplares);
+    public CD(String autor, String titulo, int ano, int exemplares, String genero) {
+        super(autor, titulo, ano, exemplares, genero);
         this.exemplaresDisponiveis = exemplares;
     }
 

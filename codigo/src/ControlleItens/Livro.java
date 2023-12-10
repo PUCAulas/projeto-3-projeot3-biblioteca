@@ -4,8 +4,8 @@ public class Livro extends ItemBibli implements ItemEmprestavel {
     private int exemplaresDisponiveis;
 
     // Construtor que chama o construtor da classe mãe
-    public Livro(String autor, String titulo, int ano, int exemplares) {
-        super(autor, titulo, ano, exemplares);
+    public Livro(String autor, String titulo, int ano, int exemplares, String genero) {
+        super(autor, titulo, ano, exemplares, genero);
         this.exemplaresDisponiveis = exemplares;
     }
 

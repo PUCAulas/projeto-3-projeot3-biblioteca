@@ -121,6 +121,17 @@ public class Biblioteca {
         }
     }
 
+    public void listarPorGenero() {
+        ArrayList<ItemBibli> aux;
+        aux = this.getItens();
+
+        Collections.sort(aux, Comparator.comparing(ItemBibli::getGenero));
+
+        for (ItemBibli item : aux) {
+            System.out.println(item.toString());
+        }
+    }
+
     public void listarPorAno() {
         ArrayList<ItemBibli> aux;
         aux = this.getItens();
@@ -184,8 +195,8 @@ public class Biblioteca {
         }
     }
 
-    public void addUsuario(String nome) {
-        Usuario user = new Usuario(nome);
+    public void addUsuario(String nome, String curso) {
+        Usuario user = new Usuario(nome, curso);
         this.usuarios.add(user);
     }
 
@@ -330,4 +341,5 @@ public class Biblioteca {
             }
         }
     }
+
 }
